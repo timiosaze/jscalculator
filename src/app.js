@@ -23,6 +23,9 @@ function addPoint(){
         document.getElementById('output').innerText = output.concat('.');
     }
 }
+function roundUp(value){
+    return +(Math.round(value + "e+2") + "e-2");
+}
 function equalsTo(){
     if(actionSet == true && (previousNumber != 0 || currentNumber != 0)){
         let solution;
@@ -43,8 +46,8 @@ function equalsTo(){
                 break;
         }
         // let solution = previousNumber + currentNumber;
-        console.log(solution);
-        document.getElementById('output').innerText = solution.toString();
+        console.log(roundUp(solution));
+        document.getElementById('output').innerText = roundUp(solution).toString();
     }
 
 }
@@ -71,8 +74,8 @@ function action(value){
                 break;
         }
         // let solution = previousNumber + currentNumber;
-        console.log(solution);
-        document.getElementById('output').innerText = solution.toString();
+        console.log(roundUp(solution));
+        document.getElementById('output').innerText = roundUp(solution).toString();
     }
     actionSet = true;   
     previousNumber = Number(document.getElementById('output').innerText);
