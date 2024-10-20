@@ -23,6 +23,18 @@ function addPoint(){
         document.getElementById('output').innerText = output.concat('.');
     }
 }
+function add(x,y){
+    return x + y;
+}
+function subtract(x,y){
+    return x - y;
+}
+function multiply(x,y){
+    return x * y;
+}
+function divide(x,y){
+    return x / y;
+}
 function roundUp(value){
     return +(Math.round(value + "e+2") + "e-2");
 }
@@ -31,16 +43,16 @@ function equalsTo(){
         let solution;
         switch (setValue) {
             case 'add':
-                solution = previousNumber + currentNumber;
+                solution = add(previousNumber,currentNumber);
                 break;
             case 'subtract':
-                solution = previousNumber - currentNumber;
+                solution = subtract(previousNumber,currentNumber);
                 break;
             case 'divide':
-                solution = previousNumber / currentNumber;
+                solution = divide(previousNumber,currentNumber);
                 break;
             case 'multiply':
-                solution = previousNumber * currentNumber;
+                solution = multiply(previousNumber,currentNumber);
                 break;
             default:
                 break;
@@ -49,6 +61,9 @@ function equalsTo(){
         console.log(roundUp(solution));
         document.getElementById('output').innerText = roundUp(solution).toString();
     }
+    actionSet = true;   
+    previousNumber = Number(document.getElementById('output').innerText);
+    currentNumber = 0;
 
 }
 function action(value){
@@ -59,16 +74,16 @@ function action(value){
         let solution;
         switch (value) {
             case 'add':
-                solution = previousNumber + currentNumber;
+                solution = add(previousNumber,currentNumber);
                 break;
             case 'subtract':
-                solution = previousNumber - currentNumber;
+                solution = subtract(previousNumber,currentNumber);
                 break;
             case 'divide':
-                solution = previousNumber / currentNumber;
+                solution = divide(previousNumber,currentNumber);
                 break;
             case 'multiply':
-                solution = previousNumber * currentNumber;
+                solution = multiply(previousNumber,currentNumber);
                 break;
             default:
                 break;
