@@ -6,6 +6,7 @@ let setValue = '';
 let actionSet = false;
 let hasPrevious = false;
 document.getElementById('output').innerText = previousNumber.toString();
+//The function for the inserting numbers to the output
 function number(value){    
     if(!hasPrevious){
         const output = document.getElementById('output').innerText;
@@ -23,16 +24,17 @@ function number(value){
         hasPrevious = false;
     }
 }
+// The button for adding . to the number
 function addPoint(){
     const output = document.getElementById('output').innerText;
     if(output.indexOf('.') == -1){
         document.getElementById('output').innerText = output.concat('.');
     }
 }
-
 function roundUp(value){
     return +(Math.round(value + "e+2") + "e-2");
 }
+//The equals to operator =
 function equalsTo(){
     if(actionSet == true && (previousNumber != 0 || currentNumber != 0)){
         let solution;
@@ -60,6 +62,7 @@ function equalsTo(){
     previousNumber = Number(document.getElementById('output').innerText);
     currentNumber = 0;
 }
+//The arithmetic operators + / * -
 function action(value){
     hasPrevious = true;
     setValue = value;
@@ -89,6 +92,7 @@ function action(value){
     previousNumber = Number(document.getElementById('output').innerText);
     currentNumber = 0;
 }
+//Clear the output by clicking on CE
 function clearOutput(){
     previousNumber = 0;
     currentNumber = 0;
