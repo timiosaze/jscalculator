@@ -1,3 +1,4 @@
+
 let previousNumber = 0;
 let currentNumber = 0;
 let actionValue = '';
@@ -16,9 +17,7 @@ function number(value){
             document.getElementById('output').innerText =output.concat(value);
             currentNumber = Number(output.concat(value));
         }
-        console.log(currentNumber);
     } else {
-        console.log(previousNumber);
         document.getElementById('output').innerText = value;
         currentNumber = Number(value);
         hasPrevious = false;
@@ -30,18 +29,7 @@ function addPoint(){
         document.getElementById('output').innerText = output.concat('.');
     }
 }
-function add(x,y){
-    return x + y;
-}
-function subtract(x,y){
-    return x - y;
-}
-function multiply(x,y){
-    return x * y;
-}
-function divide(x,y){
-    return x / y;
-}
+
 function roundUp(value){
     return +(Math.round(value + "e+2") + "e-2");
 }
@@ -107,5 +95,4 @@ function clearOutput(){
     hasPrevious = false;
     actionSet = false;
     document.getElementById("output").innerText = previousNumber.toString();
-    console.log(previousNumber, currentNumber, hasPrevious, actionSet);
 }
