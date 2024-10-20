@@ -4,11 +4,18 @@ let actionValue = '';
 let setValue = '';
 let actionSet = false;
 let hasPrevious = false;
-function number(value){
+document.getElementById('output').innerText = previousNumber.toString();
+function number(value){    
     if(!hasPrevious){
         const output = document.getElementById('output').innerText;
-        document.getElementById('output').innerText = output.concat(value);
-        currentNumber = Number(output.concat(value));
+        if(previousNumber == 0 && output.indexOf('.') == -1){
+            previousNumber = value;
+            document.getElementById('output').innerText =previousNumber;
+            currentNumber = Number(previousNumber);
+        } else {
+            document.getElementById('output').innerText =output.concat(value);
+            currentNumber = Number(output.concat(value));
+        }
         console.log(currentNumber);
     } else {
         console.log(previousNumber);
@@ -43,6 +50,7 @@ function equalsTo(){
         let solution;
         switch (setValue) {
             case 'add':
+                console.log('add');
                 solution = add(previousNumber,currentNumber);
                 break;
             case 'subtract':
@@ -57,17 +65,14 @@ function equalsTo(){
             default:
                 break;
         }
-        // let solution = previousNumber + currentNumber;
         console.log(roundUp(solution));
         document.getElementById('output').innerText = roundUp(solution).toString();
     }
     actionSet = true;   
     previousNumber = Number(document.getElementById('output').innerText);
     currentNumber = 0;
-
 }
 function action(value){
-    // actionValue = value;
     hasPrevious = true;
     setValue = value;
     if(actionSet == true && previousNumber != 0 && currentNumber != 0){
@@ -101,6 +106,6 @@ function clearOutput(){
     currentNumber = 0;
     hasPrevious = false;
     actionSet = false;
-    document.getElementById("output").innerText = '';
+    document.getElementById("output").innerText = previousNumber.toString();
     console.log(previousNumber, currentNumber, hasPrevious, actionSet);
 }
